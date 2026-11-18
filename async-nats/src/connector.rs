@@ -1307,10 +1307,10 @@ impl Connector {
                 ));
             }
             None => {
-                tracing::error!("expected INFO, got nothing");
+                tracing::error!("stream ended before NATS INFO greeting");
                 return Err(ConnectError::with_source(
                     crate::ConnectErrorKind::Io,
-                    "expected INFO, got nothing",
+                    "stream ended before NATS INFO greeting",
                 ));
             }
         };
